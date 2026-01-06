@@ -1,0 +1,334 @@
+.header {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 125px;
+  background: linear-gradient(90deg, #272727, #3e3e3e);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  z-index: 50;
+  border-bottom: 13px solid #6b6b6b;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+}
+
+.nav-left {
+  margin-left:120px;
+  display: flex;
+  gap:3rem;
+
+  padding: 7px 0;
+  margin-top: 40px;
+
+  border-top: 1px solid #d9c4a3;
+  border-bottom: 1px solid #d9c4a3;
+
+  max-width: 100%;
+}
+
+
+.nav-left a {
+  color: rgb(251, 251, 251);
+  font-family: 'Montserrat', sans-serif;
+font-weight: 600;
+letter-spacing: 0.09em;
+    text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 3px;
+}
+
+.nav-left a:hover {
+  color: #fb923c;
+}
+
+.logo-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+
+
+
+.logo-img {
+  width: 100px;
+  height: 100%;
+  object-fit: cover;
+  
+  filter: 
+    brightness(0) 
+    invert(100%)
+}
+.logo-img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s;
+  filter: 
+    brightness(0) 
+    saturate(100%) 
+    invert(75%)
+    sepia(15%)
+    saturate(450%)
+    hue-rotate(18deg)
+    brightness(108%)
+    contrast(95%);
+}  
+
+.phone-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 40px;
+  margin-right: 120px;
+}
+
+.ig-link img{
+  width:30px;
+  height:30px;
+  margin-right:15px;
+}
+.ig-link:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+.phone-link {
+    font-family: 'Montserrat', sans-serif;
+
+letter-spacing: 0.05em;
+    text-transform: uppercase;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 1.125rem;
+  font-weight: 100;
+  transition: color 0.3s;
+  border-top: 1px solid #d9c4a3;
+  border-bottom: 1px solid #d9c4a3;
+  padding: 7px 0;
+  width: fit-content;    
+  
+  
+  
+}
+
+.phone-link:hover {
+  color: #fb923c;
+}
+
+.phone-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.phone-text {
+  display: inline;
+}
+
+.phone-text {
+  display: inline;
+}
+
+/* Гамбургер-кнопка */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* ================== АДАПТИВ — ТОЛЬКО ЗДЕСЬ ПРАВКИ ================== */
+
+@media (max-width: 1024px) {
+  
+  .nav-left {
+    padding-left: 20px;
+    margin-left: 20px;
+  }
+
+  .phone-right {
+    padding-right: 20px;
+  }
+}
+@media (max-width: 1085px) and (min-width: 769px) {
+  .nav-left {
+    margin-left: 20px;      
+    gap: 1.5rem;           
+    margin-top: 20px;       
+    padding: 5px 0;         
+    max-width: 60%;          
+  }
+
+  .phone-right {
+    margin-right: 20px;     
+    gap: 0.8rem;           
+    margin-top: 20px;
+    padding: 5px 0;
+    max-width: 35%;          
+    justify-content: flex-end;
+  }
+}
+@media (max-width: 862px) {
+  .mobile-icons {
+    display: none;
+  }
+  /* Полностью прячем десктопные навигацию и телефон */
+  .nav-left {
+    display: none;
+  }
+
+  .phone-right {
+    display: none;
+  }
+
+  /* Показываем гамбургер */
+  .mobile-menu-btn {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+ 
+  .logo-img {
+    width: 80px;
+  }
+}
+
+@media (max-width: 640px) {
+  .phone-text {
+    display: none;
+  }
+}
+
+
+.mobile-menu {
+  position: absolute;
+  top: 125px; 
+  left: 0;
+  right: 0;
+  background: rgb(39, 39, 39);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 13px solid #6b6b6b;
+  z-index: 49;
+}
+
+.mobile-menu a {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  text-decoration: none;
+  padding: 0.75rem 2rem;
+  width: 80%;
+  text-align: center;
+  transition: color 0.3s;
+}
+
+.mobile-menu a:hover {
+  color: #fb923c;
+}
+
+.mobile-phone-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: white;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.mobile-phone-link:hover {
+  color: #fb923c;
+}
+
+/* Предотвращаем горизонтальный скролл на всех устройствах */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+}
+
+.header {
+  overflow-x: hidden; 
+}
+
+/* На экранах меньше 1400px начинаем уменьшать жёсткие отступы, 
+   чтобы ничего не вылезало и не было скролла */
+@media (max-width: 1400px) {
+  .nav-left {
+    padding-left: 50px;
+    margin-left: 50px;
+  }
+
+  .phone-right {
+    padding-right: 50px;
+  }
+}
+
+/* На планшетах и ниже — ещё сильнее уменьшаем */
+@media (max-width: 1024px) {
+  .nav-left {
+    padding-left: 20px;
+    margin-left: 20px;
+  }
+
+  .phone-right {
+    padding-right: 20px;
+  }
+}
+
+/* На мобильных — полностью убираем эти отступы (всё равно эти блоки скрыты) */
+@media (max-width: 768px) {
+  .nav-left,
+  .phone-right {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+/* По умолчанию (ПК) скрываем иконки */
+.mobile-icons {
+  display: none;
+}
+
+/* Мобилка до 768px — показываем в столбик */
+@media (max-width: 768px) {
+  .mobile-icons {
+    display: flex;
+    flex-direction: column;      /* столбцом */
+    gap: 10px;                   /* расстояние между иконками */
+    position: absolute;
+    left: 1rem;                  /* слева от логотипа */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .mobile-icons img {
+    width: 28px;
+    height: 28px;
+  }
+}
