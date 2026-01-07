@@ -1,6 +1,15 @@
 import "../../styles/Catalog.css";
 
 const ProductModal = ({ product, onClose }) => {
+  const secureUrl = (url) => {
+    if (!url) return null;
+    try {
+      return url.startsWith('http://') ? url.replace(/^http:\/\//i, 'https://') : url;
+    } catch (e) {
+      return url;
+    }
+  };
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal" onClick={e => e.stopPropagation()}>
@@ -10,7 +19,7 @@ const ProductModal = ({ product, onClose }) => {
           
           <div className="modal-image">
             <img
-              src={product.image || "https://via.placeholder.com/400"}
+              src={secureUrl(product.image) || "https://via.placeholder.com/400"}
               alt={product.title}
             />
           </div>
