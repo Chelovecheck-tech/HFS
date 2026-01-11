@@ -16,57 +16,40 @@ const Catalog = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Загружаем товары с бэкенда с учётом выбранного фильтра.
-    // Если бэкенд недоступен, используем локальные данные как fallback.
     setLoading(true);
-    const params = new URLSearchParams();
+    let url = `${API_URL}/api/products`;
     if (filter && filter.type === 'category') {
-      params.set('category', filter.slug);
+      url += `?category=${filter.slug}`;
     } else if (filter && filter.type === 'subcategory') {
-      params.set('subcategory', filter.slug);
+      url += `?subcategory=${filter.slug}`;
     }
-
-    const url = `${API_URL}/api/products${params.toString() ? `?${params.toString()}` : ''}`;
-
     fetch(url)
       .then(res => {
         if (!res.ok) throw new Error('Network response was not ok');
         return res.json();
       })
       .then(data => {
-        // Ожидаем массив объектов; если пусто, fallback на локальные
-        setProducts(Array.isArray(data) && data.length ? data : localProducts);
+        setProducts(Array.isArray(data) ? data : []);
       })
       .catch(() => {
-        // Если сервер недоступен — используем локальные данные
-        setProducts(localProducts);
+        setProducts([]);
       })
       .finally(() => setLoading(false));
   }, [filter]);
 
   const filteredProducts = products.filter(p => {
     // Фильтр по категории/подкатегории: p.category/p.subcategory в данных может быть slug (с сервера)
-    let matchesCategory = true;
-    if (filter) {
-      if (filter.type === 'category') {
-        matchesCategory = String(p.category) === String(filter.slug);
-      } else if (filter.type === 'subcategory') {
-        matchesCategory = String(p.subcategory) === String(filter.slug);
-      }
-    }
-
-    // Поиск по названию или описанию
+    // Фильтрация только по поиску и цене
     const q = search.trim().toLowerCase();
     const matchesSearch =
       !q ||
       (p.title && p.title.toLowerCase().includes(q)) ||
       (p.description && p.description.toLowerCase().includes(q));
 
-    // По диапазону цен
     const price = Number(p.price) || 0;
     const matchesPrice = price >= Number(priceMin) && price <= Number(priceMax);
 
-    return matchesCategory && matchesSearch && matchesPrice;
+    return matchesSearch && matchesPrice;
   });
 
   return (
