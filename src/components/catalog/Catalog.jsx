@@ -29,6 +29,7 @@ const Catalog = () => {
         return res.json();
       })
       .then(data => {
+        // Если filter == null ("все товары"), всегда показываем все товары с backend
         setProducts(Array.isArray(data) ? data : []);
       })
       .catch(() => {
