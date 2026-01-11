@@ -102,14 +102,6 @@ const Sidebar = ({ filter, setFilter }) => {
 
   return (
     <aside className="sidebar">
-      <h4>Все</h4>
-      <button
-        className={!filter ? 'active' : ''}
-        onClick={() => setFilter(null)}
-      >
-        Все товары
-      </button>
-
       {(categories || FALLBACK).map(cat => (
         <div key={cat.slug} style={{ marginTop: 12 }}>
           <h4>{cat.name}</h4>

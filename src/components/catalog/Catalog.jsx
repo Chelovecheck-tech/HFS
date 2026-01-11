@@ -8,7 +8,7 @@ import "../../styles/Catalog.css";
 
 const Catalog = () => {
   const [products, setProducts] = useState(localProducts);
-  const [filter, setFilter] = useState(null);
+  const [filter, setFilter] = useState(undefined);
   const [search, setSearch] = useState("");
   const [priceMin, setPriceMin] = useState(0);
   const [priceMax, setPriceMax] = useState(99999999);
@@ -70,7 +70,6 @@ const Catalog = () => {
           priceMax={priceMax}
           setPriceMax={setPriceMax}
         />
-
         <div className="products-grid">
           {loading ? (
             <p>Загрузка товаров...</p>
