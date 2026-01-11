@@ -46,10 +46,10 @@ const Header = () => {
 
         
         <div className="phone-right">
-            <a href ='' className='ig-link'><img src='https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png'></img></a>
-          <a href="tel:+996555123456" className="phone-link">
+            <a href ='https://www.instagram.com/nbb_company_?igsh=MXB4ZXRia3NpM2owNg%3D%3D&utm_source=qr' className='ig-link'><img src='https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png'></img></a>
+          <a href="tel:+996509755995" className="phone-link">
             <Phone className="phone-icon" />
-            <span className="phone-text">+996 8355608</span>
+            <span className="phone-text">+996 509 755 995</span>
           </a>
         </div>
 
@@ -68,9 +68,9 @@ const Header = () => {
           <a href="#about" onClick={() => setMobileMenuOpen(false)}>О нас</a>
           <a href="#catalog" onClick={() => setMobileMenuOpen(false)}>Каталог</a>
           <a href="#contacts" onClick={() => setMobileMenuOpen(false)}>Контакты</a>
-          <a href="tel:+996555123456" className="mobile-phone-link">
+          <a href="tel:+996509755995" className="mobile-phone-link">
             <Phone className="phone-icon" />
-            <span>+996 555 123 456</span>
+            <span>+996 509 755 995</span>
           </a>
         </div>
       )}
